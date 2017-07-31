@@ -111,23 +111,24 @@
 
 /* 新增的头文件 start */
 #include <epan/tvbuff-int.h>
-#include <kevins/kevins-file.h>
+#include <addsave/addsave-file.h>
 /* 新增的头文件 stop */
 
 // 图片根目录
-#define KEVINS_PIC_FLODER_NAME "d:\\kevins_save_pic\\" 
+#define ADDSAVE_FILE_FLODER_NAME "..\\addsave_save\\" 
 // 图片名前缀
-#define KEVINS_PIC_FILE_NAME "save_pic"
+#define ADDSAVE_FILE_NAME "save_file"
 
 // 全局变量 标记数据包是否为图片
-extern int kevins_g_is_pic;
+extern int addsave_g_is_savefile;
 // 全局变量 标记数据包来源IP
-extern char kevins_g_src_ip[ KEVINS_MAXPATHLEN ];
+extern char addsave_g_src_ip[ ADDSAVE_MAXPATHLEN ];
 
 // 图片类型
-#define KEVINS_PIC_JPG 1
-#define KEVINS_PIC_PNG 2
-#define KEVINS_PIC_GIF 3
+#define ADDSAVE_PIC_JPG 1
+#define ADDSAVE_PIC_PNG 2
+#define ADDSAVE_PIC_GIF 3
+#define ADDSAVE_FILE_AUDIO 4
 
 // 主要功能函数
-void kevins_save_pic(epan_dissect_t * edt);
+void addsave_save_pic(epan_dissect_t * edt);

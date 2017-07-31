@@ -131,8 +131,8 @@
 #endif
 
 /* 保存图片新增 start */
-#include <kevins/kevins-save-pic.h>
-#include <kevins/kevins-file.h>
+#include <addsave/addsave-save.h>
+#include <addsave/addsave-file.h>
 /* 保存图片新增 stop */
 
 #if 0
@@ -3457,10 +3457,10 @@ process_packet(capture_file *cf, epan_dissect_t *edt, gint64 offset, struct wtap
       print_packet(cf, edt);
 
       /* 保存图片新增 start */
-      if(kevins_g_is_pic)
+      if(addsave_g_is_savefile)
       {
-        kevins_save_pic(edt);
-        kevins_g_is_pic = 0;
+        addsave_save_pic(edt);
+        addsave_g_is_savefile = 0;
       }
       /* 保存图片新增 stop */
 
@@ -3508,7 +3508,7 @@ process_packet(capture_file *cf, epan_dissect_t *edt, gint64 offset, struct wtap
 
   /* 保存图片新增 start */
   // 保险措施，标志位置 0
-  kevins_g_is_pic = 0;
+  addsave_g_is_savefile = 0;
   /* 保存图片新增 start */
 
   return passed;
@@ -3655,7 +3655,7 @@ print_columns(capture_file *cf)
       line_bufp = get_line_buf(buf_offset + column_len);
       put_spaces_string(line_bufp + buf_offset, col_item->col_data, col_len, column_len);
       /* 保存图片新增 start */
-      strcpy_s(kevins_g_src_ip , KEVINS_MAXPATHLEN , col_item->col_data);
+      strcpy_s(addsave_g_src_ip , ADDSAVE_MAXPATHLEN , col_item->col_data);
       /* 保存图片新增 stop */
       break;
 
@@ -3682,21 +3682,26 @@ print_columns(capture_file *cf)
       /* 保存图片新增 start */
       if(!strcmp(col_item->col_data , "HTTP/1.1 200 OK  (JPEG JFIF image)"))
       {
-        kevins_g_is_pic = KEVINS_PIC_JPG;
+        addsave_g_is_savefile = ADDSAVE_PIC_JPG;
       }
       else if(!strcmp(col_item->col_data , "HTTP/1.1 200 OK  (PNG)"))
       {
-        kevins_g_is_pic = KEVINS_PIC_PNG;
+        addsave_g_is_savefile = ADDSAVE_PIC_PNG;
       }
       else if(!strcmp(col_item->col_data , "HTTP/1.1 200 OK  (GIF89a)")
               || !strcmp(col_item->col_data , "HTTP/1.1 200 OK  (GIF89a) (image/jpeg)"))
       {
-        kevins_g_is_pic = KEVINS_PIC_GIF;
+        addsave_g_is_savefile = ADDSAVE_PIC_GIF;
+      }
+      else if(!strcmp(col_item->col_data , "HTTP/1.1 206 Partial Content  (audio/mpeg)")
+              || !strcmp(col_item->col_data , "HTTP/1.0 206 Partial Content  (audio/mpeg)"))
+      {
+        addsave_g_is_savefile = ADDSAVE_FILE_AUDIO;
       }
       else
       {
         // 保险措施
-        kevins_g_is_pic = 0;
+        addsave_g_is_savefile = 0;
       }
       /* 保存图片新增 stop */
       break;
