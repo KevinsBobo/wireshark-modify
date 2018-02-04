@@ -1,0 +1,94 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{32C1FA56-EAE7-411E-A24A-08BB40861D64}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>foo</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_USRDLL;FOO_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>F:\wireshark-build\wireshark-x86\zlib;F:\wireshark-build\Wireshark-win32-libs-2.2\zlib-1.2.8-ws;F:\wireshark-build\wireshark-x86;F:\wireshark-build\wireshark;F:\wireshark-build\wireshark\epan;F:\wireshark-build\wireshark\tools\lemon;F:\wireshark-build\Wireshark-win32-libs-2.2\AirPcap_Devpack_4_1_0_1622\Airpcap_Devpack\include;F:\wireshark-build\Wireshark-win32-libs-2.2\c-ares-1.11.0-win32ws\include;F:\wireshark-build\Wireshark-win32-libs-2.2\gnutls-3.2.15-2.7-win32ws\include;F:\wireshark-build\Wireshark-win32-libs-2.2\GeoIP-1.6.6-win32ws\include;F:\wireshark-build\Wireshark-win32-libs-2.2\gtk2\include\glib-2.0;F:\wireshark-build\Wireshark-win32-libs-2.2\gtk2\lib\glib-2.0\include;F:\wireshark-build\Wireshark-win32-libs-2.2\gtk2\include\glib-2.0\glib;F:\wireshark-build\Wireshark-win32-libs-2.2\gtk2\include\gtk-2.0;F:\wireshark-build\Wireshark-win32-libs-2.2\gtk2\include;F:\wireshark-build\Wireshark-win32-libs-2.2\gtk2\include\freetype2;F:\wireshark-build\Wireshark-win32-libs-2.2\gtk2\include\atk-1.0;F:\wireshark-build\Wireshark-win32-libs-2.2\gtk2\include\gdk-pixbuf-2.0;F:\wireshark-build\Wireshark-win32-libs-2.2\gtk2\include\cairo;F:\wireshark-build\Wireshark-win32-libs-2.2\gtk2\include\pango-1.0;F:\wireshark-build\Wireshark-win32-libs-2.2\gtk2\lib\gtk-2.0\include;F:\wireshark-build\Wireshark-win32-libs-2.2\kfw-3-2-2-i386-ws-vc6\include;F:\wireshark-build\Wireshark-win32-libs-2.2\libssh-0.7.2-win32ws\include;F:\wireshark-build\Wireshark-win32-libs-2.2\lua5.2.4\include;F:\wireshark-build\Wireshark-win32-libs-2.2\WpdPack\Include;F:\wireshark-build\Wireshark-win32-libs-2.2\portaudio_v19_2\include;F:\wireshark-build\wireshark-win32-libs-2.2\portaudio_v19_2\src\common;F:\wireshark-build\wireshark-win32-libs-2.2\portaudio_v19_2\src\os\win;F:\Qt\Qt5.6.0\5.6\msvc2013\include;F:\Qt\Qt5.6.0\5.6\msvc2013\include\QtCore;F:\Qt\Qt5.6.0\5.6\msvc2013\.\mkspecs\win32-msvc2013;F:\Qt\Qt5.6.0\5.6\msvc2013\include\QtMultimedia;F:\Qt\Qt5.6.0\5.6\msvc2013\include\QtNetwork;F:\Qt\Qt5.6.0\5.6\msvc2013\include\QtGui;F:\Qt\Qt5.6.0\5.6\msvc2013\include\QtPrintSupport;F:\Qt\Qt5.6.0\5.6\msvc2013\include\QtWidgets;F:\Qt\Qt5.6.0\5.6\msvc2013\include\QtSvg;F:\Qt\Qt5.6.0\5.6\msvc2013\include\QtWinExtras;F:\wireshark-build\Wireshark-win32-libs-2.2\libsmi-svn-40773-win32ws\include;F:\wireshark-build\Wireshark-win32-libs-2.2\WinSparkle-0.3-44-g2c8d9d3-win32ws;F:\wireshark-build\wireshark\plugins\gryphon;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib;..\..\run\Debug\wireshark.lib;..\..\run\Debug\wiretap.lib;..\..\run\Debug\wsutil.lib;F:\wireshark-build\Wireshark-win32-libs-2.2\gtk2\lib\gmodule-2.0.lib;..\..\run\Debug\zlibd.lib;wsock32.lib;ws2_32.lib;F:\wireshark-build\Wireshark-win32-libs-2.2\gtk2\lib\glib-2.0.lib;F:\wireshark-build\Wireshark-win32-libs-2.2\WpdPack\Lib\wpcap.lib;F:\wireshark-build\Wireshark-win32-libs-2.2\c-ares-1.11.0-win32ws\lib\libcares-2.lib;F:\wireshark-build\Wireshark-win32-libs-2.2\kfw-3-2-2-i386-ws-vc6\lib\krb5_32.lib;F:\wireshark-build\Wireshark-win32-libs-2.2\GeoIP-1.6.6-win32ws\lib\libGeoIP-1.lib;F:\wireshark-build\Wireshark-win32-libs-2.2\gnutls-3.2.15-2.7-win32ws\bin\libgcrypt-20.lib;F:\wireshark-build\Wireshark-win32-libs-2.2\gnutls-3.2.15-2.7-win32ws\bin\libgpg-error-0.lib;F:\wireshark-build\Wireshark-win32-libs-2.2\gnutls-3.2.15-2.7-win32ws\bin\libgnutls-28.lib;F:\wireshark-build\Wireshark-win32-libs-2.2\libsmi-svn-40773-win32ws\lib\libsmi-2.lib;F:\wireshark-build\Wireshark-win32-libs-2.2\lua5.2.4\lua52.lib;psapi.lib</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;_USRDLL;FOO_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <Text Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="targetver.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="dllmain.c" />
+    <ClCompile Include="foo.c" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
